@@ -50,7 +50,7 @@ import "github.com/shivakar/unqid"
 
 func main() {
     for i := 0; i < 10; i++ {
-        fmt.Println(unqid.ID())
+        fmt.Println(unqid.Next())
     }
 }
 ``` 
