@@ -6,8 +6,10 @@
 //      7 bits for a sequence number
 //
 // unqid will panic during initialization if:
-// 1. No private ip address could be found to generate machine id bits
-// 2. If current time is past the supported max time (2055-11-04 19:53:47.775 +0000 UTC)
+//
+// - No private ip address could be found to generate machine id bits
+//
+// - If current time is past the supported max time (2055-11-04 19:53:47.775 +0000 UTC)
 package unqid
 
 import (
@@ -81,7 +83,9 @@ func machineID() (int64, error) {
 // Next returns the next unique ID.
 //
 // Calling Next will result in a panic after the supported max time (2055-11-04 19:53:47.775 +0000 UTC).
-// If the system clock is rolledback to a time before the last generated ID (e.g. using NTP), Next will wait until clock exceed the last generated timestamp before returning a new ID.
+//
+// If the system clock is rolledback to a time before the last generated ID (e.g. using NTP), Next will wait until clock exceeds the last generated timestamp before returning a new ID.
+//
 // If number of IDs generated in the current millisecond exceeds max supported (128), Next will wait till the next sequence reset (done every ms).
 func Next() int64 {
 	t := since(epoch).Milliseconds()
