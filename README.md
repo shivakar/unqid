@@ -14,7 +14,7 @@ Components of the ID:
 
 `timestamp` is calculated since the `epoch` of `Jan. 1, 2021`
 `machine-id` is the lower 16 bits of the private ip from the machine's os `pid`
-`sequence-number` is monotonically increasing number reset every millisecond
+`sequence-number` is monotonically increasing number reset to 0 every millisecond
 
 Due to the component sizes:
 - The lifetime of id generation is ~34 years (2^40 - 1 milliseconds from custom epoch)
